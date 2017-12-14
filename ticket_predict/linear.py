@@ -30,7 +30,7 @@ def linear_train(x_train, y_train, x_test, y_test):
     ax.plot([y_test_list.min(), y_test_list.max()], [y_test_list.min(), y_test_list.max()], 'k--', lw=4)
     ax.set_xlabel('Measured')
     ax.set_ylabel('Predicted')
-    plt.show()
+    #plt.show()
 
 
 if __name__ == "__main__":
