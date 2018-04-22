@@ -1,0 +1,41 @@
+boston
+cor 0.942818
+Linear Regression:Y = 0.7933 * X + 139.4421
+RMSE: 20.7678229143
+RMSE / AVG(Y) = 0.0252
+
+chicago
+cor 0.903704
+Linear Regression:Y = 1.0136 * X + 18.1161
+RMSE: 34.9359734088
+RMSE / AVG(Y) = 0.0390
+
+hawaii
+cor 0.895081
+Linear Regression:Y = 1.0197 * X + 32.4969
+RMSE: 48.6344962946
+RMSE / AVG(Y) = 0.0571
+
+los
+cor 0.788786
+Linear Regression:Y = 1.2098 * X + 170.0716
+RMSE: 109.309412276
+RMSE / AVG(Y) = 0.0731
+
+newyork
+cor  0.872808
+Linear Regression:Y = 0.9874 * X + 35.4829
+RMSE: 51.0351485537
+RMSE / AVG(Y) = 0.0475
+
+sanfran
+cor 0.825714
+Linear Regression:Y = 0.9187 * X + 112.2953
+RMSE: 38.7818739292
+RMSE / AVG(Y) = 0.0387
+
+seattle
+cor 0.905979
+Linear Regression:Y = 0.9341 * X + 45.0439
+RMSE: 25.5579250386
+RMSE / AVG(Y) = 0.0306

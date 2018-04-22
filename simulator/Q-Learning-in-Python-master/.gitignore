@@ -1,0 +1,10 @@
+# Lines starting with '#' are considered comments.
+
+# pastas
+problems/
+
+# Ignore emacs backup files
+*~
+*.pyc
+\#*
+TAGS

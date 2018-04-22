@@ -1,0 +1,41 @@
+boston
+p,d,q = 9,1,3
+RMSE: 13.850
+AVG_ORDER: 823.500
+RATIO: 1.682%
+
+chicago
+p,d,q = 4,1,3
+RMSE: 15.479
+AVG_ORDER: 895.000
+RATIO: 1.729%
+
+hawaii
+p,d,q = 3,1,3
+RMSE: 1.805
+AVG_ORDER: 851.500
+RATIO: 0.212%
+
+los
+p,d,q = 6,1,7
+RMSE: 28.964
+AVG_ORDER: 1496.200
+RATIO: 1.936%
+
+newyork
+p,d,q = 6,1,7
+RMSE: 6.722
+AVG_ORDER: 1075.000
+RATIO: 0.625%
+
+sanfran
+p,d,q = 4,1,3
+RMSE: 15.350
+AVG_ORDER: 1002.400
+RATIO: 1.531%
+
+seattle
+p,d,q = 5,1,3
+RMSE: 4.553
+AVG_ORDER: 836.300
+RATIO: 0.544%
