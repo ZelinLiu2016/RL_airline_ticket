@@ -176,7 +176,7 @@ def gen_user_price(user_data):
         for class_ in ['Y', 'C', 'F']:
             sum = 0
             tmp = user_data.get((airline, class_), [])
-            if len(tmp)==0:
+            if len(tmp) == 0:
                 print airline, class_
                 continue
             for px in user_data.get((airline, class_), []):
