@@ -236,6 +236,15 @@ class User:
 # 1.Y. economy 2.C. business 3.F. top
 
 
+def get_order_data():
+    pass
+
+def get_search_data():
+    pass
+
+def get_price_data():
+    pass
+
 if __name__ == "__main__":
     query_data = load_query_data()
     user_type = gen_user_type(query_data)
@@ -245,4 +254,6 @@ if __name__ == "__main__":
     s = Simulator()
     s.generate(1, "10:30", query_data, user_type, user_class, user_airline, user_price)
     s.show()
+    # use search size to gen user query
+    # 
 
