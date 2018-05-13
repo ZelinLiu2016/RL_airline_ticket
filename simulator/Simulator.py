@@ -4,7 +4,10 @@ import numpy as np
 from scipy.stats import norm
 import matplotlib.pyplot as plt
 import random
+import csv
+import datetime as dt
 
+from datetime_utils import str2date, date2str
 
 number_weekday_map = {
     1: "Mon",
@@ -199,12 +202,12 @@ class Simulator:
         self.Time = time
         self.Users = []
 
-    def generate(self, weekday, time, query_data, probability, class_probability, airline_p, user_price):
-        self.Size = 0
+    def generate(self, size, weekday, time, query_data, probability, class_probability, airline_p, user_price):
+        self.Size = size
         self.Weekday = weekday
         self.Time = time
         self.Users = []
-        self.Size = gen_user_size(query_data, self.Weekday, self.Time)
+        # self.Size = gen_user_size(query_data, self.Weekday, self.Time)
         for i in range(self.Size):
             name = "User%03d" % (i+1)
             t = random_generate(probability[(weekday, time)])
@@ -220,15 +223,56 @@ class Simulator:
 
 
 class User:
-    def __init__(self, name, type, class_,airline, price):
+    def __init__(self, name, type, class_, airline, price):
         self.Name = name
         self.Type = type
         self.Class = class_
         self.Airline = airline
         self.Price = price
 
-    def choice(self):
-        return
+    def choice(self, tickets, yes_tickets):
+        selected = None
+        yes_ticket = None
+        for t in yes_tickets:
+            if yes_ticket is None:
+                if self.Airline == t[0] and self.Class == t[1]:
+                    yes_ticket = t
+            else:
+                if self.Airline == t[0] and self.Class == t[1] and yes_ticket[2] > t[2]:
+                    yes_ticket = t
+        if yes_ticket is None:
+            return None
+        for t in tickets:
+            if self.Airline == t[0] and self.Class == t[1] and t[2] <= yes_ticket[2]:#elf.Price > (t[2] + 5000):
+                return t
+        return selected
+
+    def choice_2days(self, tickets, yes_tickets, yesyes_tickets):
+        selected = None
+        yes_ticket = None
+        yesyes_ticket = None
+        for t in yesyes_tickets:
+            if yesyes_ticket is None:
+                if self.Airline == t[0] and self.Class == t[1]:
+                    yesyes_ticket = t
+            else:
+                if self.Airline == t[0] and self.Class == t[1] and yesyes_ticket[2] > t[2]:
+                    yesyes_ticket = t
+        for t in yes_tickets:
+            if yes_ticket is None:
+                if self.Airline == t[0] and self.Class == t[1]:
+                    yes_ticket = t
+            else:
+                if self.Airline == t[0] and self.Class == t[1] and yes_ticket[2] > t[2]:
+                    yes_ticket = t
+        if yes_ticket is None:
+            return None
+        if yesyes_ticket is None:
+            return None
+        for t in tickets:
+            if self.Airline == t[0] and self.Class == t[1] and t[2] <= yes_ticket[2] and t[2] <= yesyes_ticket[2]:#elf.Price > (t[2] + 5000):
+                return t
+        return selected
 
     def show(self):
         print "Name: %s, Type: %d, Class: %s, Airline:%s, Price:%.3f" % (self.Name, self.Type, self.Class,self.Airline, self.Price)
@@ -237,23 +281,102 @@ class User:
 
 
 def get_order_data():
-    pass
+    file = "data/data/search/order_qtt.csv"
+    order_dict = {}
+    with open(file, 'rb') as csvfile:
+        csv_reader = csv.reader(csvfile)
+        for row in csv_reader:
+            if row[0] != 'fdate':
+                order_dict[row[0]] = row[1]
+    return order_dict
+
 
 def get_search_data():
-    pass
+    file = "data/data/search/Search.csv"
+    search_dict = {}
+    with open(file, 'rb') as csvfile:
+        csv_reader = csv.reader(csvfile)
+        for row in csv_reader:
+            if row[0] != 'search_date':
+                search_dict[row[0]] = [int(row[i]) for i in range(1, len(row))]
+    return search_dict
+
 
 def get_price_data():
-    pass
+    price_dict = {}
+    price_list = pd.read_csv("data/data/price/all_price.csv").values.tolist()
+    for row in price_list:
+        s_d = row[1]
+        f_d = row[0].split(' ')[0]
+        if (s_d, f_d) not in price_dict:
+            price_dict[(s_d, f_d)] = []
+        price_dict[(s_d, f_d)].append((row[2], row[3], float(row[5])))
+    return price_dict
+
+
+def make_choice(simulator, query_data, user_type, user_class, user_airline, user_price, search_date, search_dict, price_dict):
+    order_cnt = {}
+    search_list = search_dict[search_date]
+    for i in range(len(search_list)):
+        flight_date = str2date(search_date) + dt.timedelta(days=i)
+        week_day = flight_date.weekday() + 1
+        flight_date_str = date2str(flight_date)
+        search_number = search_list[i]
+        simulator.generate(search_number, week_day, "12:00", query_data, user_type, user_class, user_airline, user_price)
+        for u in simulator.Users:
+            tickets = find_all_tickets(search_date, flight_date_str, price_dict)
+            yes_tickets = find_all_tickets(date2str(str2date(search_date)-dt.timedelta(days=1)), flight_date_str, price_dict)
+            yesyes_tickets = find_all_tickets(date2str(str2date(search_date) - dt.timedelta(days=2)), flight_date_str,
+                                           price_dict)
+            ticket_selected = u.choice_2days(tickets, yes_tickets, yesyes_tickets)
+            if ticket_selected is not None:
+                number = order_cnt.get(flight_date_str, 0)
+                order_cnt[flight_date_str] = (number + 1)
+    return order_cnt
+
+
+def find_all_tickets(search_date, flight_date, price_dict):
+    ret = price_dict.get((search_date, flight_date), [])
+    return ret
+
+
+def show_result(x):
+    x.plot()
+    plt.show()
+    data = x.values.tolist()[:-80]
+    error = 0
+    for i in range(len(data)):
+        error += abs(data[i][1]-data[i][0])/(data[i][0] + 0.0)
+    print error*100/len(data)
+
 
 if __name__ == "__main__":
+    simulate_orders = {}
     query_data = load_query_data()
     user_type = gen_user_type(query_data)
     user_class = gen_user_class(load_class_data())
     user_airline = gen_user_airline(load_airline_data())
     user_price = gen_user_price(load_price_data())
     s = Simulator()
-    s.generate(1, "10:30", query_data, user_type, user_class, user_airline, user_price)
-    s.show()
-    # use search size to gen user query
-    # 
+    search_dict = get_search_data()
+    price_dict = get_price_data()
 
+    begin_date = dt.date(2017, 2, 1)
+    end_date = dt.date(2018, 1, 31)
+    search_date = begin_date
+    while search_date <= end_date:
+        print search_date
+        search_date_str = date2str(search_date)
+        orders = make_choice(s, query_data, user_type, user_class, user_airline, user_price, search_date_str, search_dict, price_dict)
+        for date_str, order_num in orders.items():
+            simulate_orders[date_str] = (simulate_orders.get(date_str, 0) + order_num)
+        search_date = search_date + dt.timedelta(days=1)
+    simulate_df = pd.DataFrame(data=[[x, simulate_orders[x]] for x in simulate_orders], columns=["fdate", "number"]).sort_values(by=['fdate'])
+    simulate_df.to_csv("result.csv")
+    simulate_df = simulate_df.set_index(['fdate'])
+    real_df = pd.read_csv("data/data/search/order_qtt.csv", index_col='fdate')
+    df = pd.concat([real_df, simulate_df], axis=1)
+    df.fillna(0, inplace=True)
+    df = df[(df.index >= date2str(begin_date)) & (df.index <= date2str(end_date))]
+    print df
+    show_result(df)
