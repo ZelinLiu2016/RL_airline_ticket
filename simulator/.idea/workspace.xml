@@ -168,25 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Simulator">
-    <configuration name="RL-QL" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="simulator" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Q-Learning-in-Python-master/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Q-Learning-in-Python-master/src/RL-QL.py" />
-      <option name="PARAMETERS" value="&quot;&quot; &quot;&quot; 0.05 0.95 0 0.0005 0.95 2000 100 1000" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.user_airline">
     <configuration name="Simulator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="simulator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -236,6 +218,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Q-Learning-in-Python-master/q_learning_demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="user_airline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="simulator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/user_airline.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -394,19 +394,19 @@
       <method />
     </configuration>
     <list>
-      <item itemvalue="Python.RL-QL" />
       <item itemvalue="Python.Simulator" />
       <item itemvalue="Python.q_learning_demo" />
       <item itemvalue="Python.datetime_utils" />
       <item itemvalue="Python.utils" />
+      <item itemvalue="Python.user_airline" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.user_airline" />
         <item itemvalue="Python.Simulator" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python.datetime_utils" />
         <item itemvalue="Python.q_learning_demo" />
-        <item itemvalue="Python.RL-QL" />
       </list>
     </recent_temporary>
   </component>

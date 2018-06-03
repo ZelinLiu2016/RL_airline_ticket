@@ -9,15 +9,6 @@ import datetime as dt
 
 from datetime_utils import str2date, date2str
 
-number_weekday_map = {
-    1: "Mon",
-    2: "Tues",
-    3: "Wed",
-    4: "Thurs",
-    5: "Fri",
-    6: "Sat",
-    7: "Sun",
-}
 
 class_map = {
     1: "Y",
@@ -33,6 +24,8 @@ all_time = ["06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:0
 data = norm.rvs(10.0, 2.5, size=500)
 
 # Fit a normal distribution to the data:
+
+user_data = []
 
 
 def gaussian(sigma, x, u):
@@ -230,7 +223,16 @@ class User:
         self.Airline = airline
         self.Price = price
 
-    def choice(self, tickets, yes_tickets):
+    def choice(self, tickets):
+        selected = None
+        if len(tickets) > 0:
+            return tickets[0]
+        for t in tickets:
+            if self.Airline == t[0] and self.Class == t[1]:  # self.Price > (t[2] + 5000):
+                return t
+        return selected
+
+    def choice_1day(self, tickets, yes_tickets):
         selected = None
         yes_ticket = None
         for t in yes_tickets:
@@ -243,7 +245,7 @@ class User:
         if yes_ticket is None:
             return None
         for t in tickets:
-            if self.Airline == t[0] and self.Class == t[1] and t[2] <= yes_ticket[2]:#elf.Price > (t[2] + 5000):
+            if self.Airline == t[0] and self.Class == t[1] and t[2] <= yes_ticket[2]:#self.Price > (t[2] + 5000):
                 return t
         return selected
 
@@ -314,9 +316,10 @@ def get_price_data():
     return price_dict
 
 
-def make_choice(simulator, query_data, user_type, user_class, user_airline, user_price, search_date, search_dict, price_dict):
+def make_choice(simulator, query_data, user_type, user_class, user_airline, user_price, search_date, search_dict, price_dict, conversion_rate):
     order_cnt = {}
     search_list = search_dict[search_date]
+    global user_data
     for i in range(len(search_list)):
         flight_date = str2date(search_date) + dt.timedelta(days=i)
         week_day = flight_date.weekday() + 1
@@ -324,14 +327,19 @@ def make_choice(simulator, query_data, user_type, user_class, user_airline, user
         search_number = search_list[i]
         simulator.generate(search_number, week_day, "12:00", query_data, user_type, user_class, user_airline, user_price)
         for u in simulator.Users:
+            user_data.append((search_date_str, flight_date_str, u.Name, u.Type, u.Class, u.Airline, u.Price))
             tickets = find_all_tickets(search_date, flight_date_str, price_dict)
-            yes_tickets = find_all_tickets(date2str(str2date(search_date)-dt.timedelta(days=1)), flight_date_str, price_dict)
-            yesyes_tickets = find_all_tickets(date2str(str2date(search_date) - dt.timedelta(days=2)), flight_date_str,
-                                           price_dict)
-            ticket_selected = u.choice_2days(tickets, yes_tickets, yesyes_tickets)
-            if ticket_selected is not None:
-                number = order_cnt.get(flight_date_str, 0)
-                order_cnt[flight_date_str] = (number + 1)
+            # yes_tickets = find_all_tickets(date2str(str2date(search_date)-dt.timedelta(days=1)), flight_date_str, price_dict)
+            # yesyes_tickets = find_all_tickets(date2str(str2date(search_date) - dt.timedelta(days=2)), flight_date_str,
+            #                                price_dict)
+            # ticket_selected = u.choice_2days(tickets, yes_tickets, yesyes_tickets)
+            ticket_selected = u.choice(tickets)
+            # if ticket_selected is not None:
+            if True:
+                conv_prob = {0: 1 - conversion_rate[i], 1: conversion_rate[i]}
+                conv = random_generate(conv_prob)
+                number = order_cnt.get(search_date_str, 0)
+                order_cnt[search_date_str] = (number + conv)
     return order_cnt
 
 
@@ -343,7 +351,7 @@ def find_all_tickets(search_date, flight_date, price_dict):
 def show_result(x):
     x.plot()
     plt.show()
-    data = x.values.tolist()[:-80]
+    data = x.values.tolist()
     error = 0
     for i in range(len(data)):
         error += abs(data[i][1]-data[i][0])/(data[i][0] + 0.0)
@@ -360,23 +368,32 @@ if __name__ == "__main__":
     s = Simulator()
     search_dict = get_search_data()
     price_dict = get_price_data()
+    conversion_df = pd.read_csv("data/data/search/conversion_rate.csv")
+    conversion_rate = dict(conversion_df.values.tolist())
 
-    begin_date = dt.date(2017, 2, 1)
-    end_date = dt.date(2018, 1, 31)
+    begin_date = dt.date(2017, 5, 1)
+    end_date = dt.date(2018, 4, 20)
     search_date = begin_date
     while search_date <= end_date:
         print search_date
         search_date_str = date2str(search_date)
-        orders = make_choice(s, query_data, user_type, user_class, user_airline, user_price, search_date_str, search_dict, price_dict)
+        orders = make_choice(s, query_data, user_type, user_class, user_airline, user_price, search_date_str, search_dict, price_dict, conversion_rate)
         for date_str, order_num in orders.items():
-            simulate_orders[date_str] = (simulate_orders.get(date_str, 0) + order_num)
+            # simulate_orders[date_str] = (simulate_orders.get(date_str, 0) + order_num)
+            if search_date_str not in simulate_orders:
+                simulate_orders[search_date_str] = 0
+            simulate_orders[search_date_str] += order_num
         search_date = search_date + dt.timedelta(days=1)
-    simulate_df = pd.DataFrame(data=[[x, simulate_orders[x]] for x in simulate_orders], columns=["fdate", "number"]).sort_values(by=['fdate'])
+    simulate_df = pd.DataFrame(data=[[x, simulate_orders[x]] for x in simulate_orders], columns=["fdate", "predict"]).sort_values(by=['fdate'])
     simulate_df.to_csv("result.csv")
     simulate_df = simulate_df.set_index(['fdate'])
-    real_df = pd.read_csv("data/data/search/order_qtt.csv", index_col='fdate')
+    real_df = pd.read_csv("data/data/search/order_qty_searchdate.csv", index_col='fdate')
     df = pd.concat([real_df, simulate_df], axis=1)
     df.fillna(0, inplace=True)
     df = df[(df.index >= date2str(begin_date)) & (df.index <= date2str(end_date))]
     print df
+    user_df = pd.DataFrame(data=user_data, columns=["Search Date", "Flight Date", "Name", "Type", "Class", "Airline", "Price"])
+    # user_df.to_csv("user.csv", index=None)
+    df.to_csv("result.csv")
+
     show_result(df)

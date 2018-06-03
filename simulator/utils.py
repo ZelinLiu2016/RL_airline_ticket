@@ -10,6 +10,15 @@ def integrate_price():
     df.to_csv("all_price.csv", index=None)
 
 
+def order_qty_searchdate():
+    df = pd.DataFrame([], columns=['order_date', 'order_cnt'])
+    for i in [2017, 2018]:
+        csv_path = "data/data/%4d_order_qtt_searchdate.csv" % i
+        new_df = pd.read_csv(csv_path)
+        df = pd.concat([df, new_df])
+    df.to_csv("order_qty_searchdate.csv", index=None)
+
+
 def calculate():
     file = "data/data/search/Search.csv"
     search_dict = {}
@@ -21,4 +30,4 @@ def calculate():
 
 
 if __name__ == "__main__":
-    calculate()
+    order_qty_searchdate()
