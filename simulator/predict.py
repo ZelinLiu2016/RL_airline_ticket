@@ -50,7 +50,7 @@ def find_all_tickets(search_date, flight_date, price_dict):
     return ret
 
 
-def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_range, price_dict, conversion_rate, history_unconv):
+def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_range, price_dict, conversion_rate, history_unconv, price_diff=0):
     # search_list: search cnt for different days after current day
     # simulator: a simulator
     order_cnt = 0
@@ -65,6 +65,8 @@ def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_r
         for u in simulator.Users:
             # user_data.append((search_date_str, flight_date_str, u.Name, u.Type, u.Class, u.Airline, u.Price))
             tickets = find_all_tickets(s_d_str, flight_date_str, price_dict)
+            for i in range(len(tickets)):
+                tickets[i] = (tickets[i][0], tickets[i][1], tickets[i][2]+price_diff)
             # yes_tickets = find_all_tickets(date2str(str2date(search_date)-dt.timedelta(days=1)), flight_date_str, price_dict)
             # yesyes_tickets = find_all_tickets(date2str(str2date(search_date) - dt.timedelta(days=2)), flight_date_str,
             #                                price_dict)
