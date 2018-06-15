@@ -54,6 +54,7 @@ def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_r
     # search_list: search cnt for different days after current day
     # simulator: a simulator
     order_cnt = 0
+    revenue = 0
     history_unconv[s_d_str] = [0]*181
     for i in range(len(s_list)):
         flight_date = str2date(s_d_str) + dt.timedelta(days=i)
@@ -77,7 +78,8 @@ def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_r
                 conv_prob = {0: 1 - conversion_rate[i], 1: conversion_rate[i]}
                 conv = random_generate(conv_prob)
                 order_cnt += conv
-    return order_cnt
+                revenue += conv * ticket_selected[2]
+    return order_cnt, revenue
 
 
 if __name__ == "__main__":
@@ -110,7 +112,7 @@ if __name__ == "__main__":
         search_date_str = date2str(search_date)
         search_list = search_dict[search_date_str]
         conv_rate_list = train_conversion(search_date - dt.timedelta(days=TRAIN_DURATION), search_date - dt.timedelta(days=1), real_df, meta_dict)
-        orders = predict_order(search_date_str, search_list, category_distribution, class_distribution, airline_distribution, user_price, px_dict, conv_rate_list, meta_dict)
+        orders, r = predict_order(search_date_str, search_list, category_distribution, class_distribution, airline_distribution, user_price, px_dict, conv_rate_list, meta_dict)
         simulate_orders[search_date_str] = orders
         search_date = search_date + dt.timedelta(days=1)
 

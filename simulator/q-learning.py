@@ -5,7 +5,7 @@ import time
 
 from conversion import train_conversion
 from datetime_utils import date2str
-from predict import get_price_data, predict_order
+from predict import get_price_data, predict_order, find_all_tickets
 from predict import get_search_data
 from user_airline import gen_weekday_airline_dtb
 from user_category import gen_weekday_category_dtb
@@ -34,9 +34,9 @@ def predict_ticket(s, pxdiff):
     search_list = search_dict[search_date_str]
     conv_rate_list = train_conversion(search_date - dt.timedelta(days=TRAIN_DURATION),
                                       search_date - dt.timedelta(days=1), real_df, meta_dict)
-    orders = predict_order(search_date_str, search_list, category_distribution, class_distribution,
+    orders, revenue = predict_order(search_date_str, search_list, category_distribution, class_distribution,
                            airline_distribution, user_price, px_dict, conv_rate_list, meta_dict,price_diff=pxdiff)
-    return orders, 10000
+    return orders, revenue
 
 
 def get_environment_feedback(s, action_name):
@@ -60,7 +60,7 @@ def Q_learning(Q_table):
     for episode in range(max_episodes):
         print episode
         s = (0, tickets)
-        while s[0]<=n_status and s[1] > 0:
+        while s[0] <= n_status and s[1] > 0:
             a = choose_action_by_epsilon_greedy(s, Q_table)
             s_, r = get_environment_feedback(s, a)
             Q_old = Q_table[s][a]
@@ -73,10 +73,11 @@ def Q_learning(Q_table):
             s = s_
     return Q_table
 
+
 if __name__ == "__main__":
     n_status = 100
     actions = [-10, -5, 0, 5, 10]
-    tickets = 100
+    tickets = 5000
     epsilon = 0.8
     alpha = 0.1
     gamma = 0.9
