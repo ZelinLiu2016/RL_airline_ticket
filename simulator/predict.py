@@ -12,9 +12,10 @@ from user_class import gen_weekday_class_dtb
 import matplotlib.pyplot as plt
 
 
-def show_result(x):
-    x.plot()
-    plt.show()
+def show_result(x, show=True):
+    if show:
+        x.plot()
+        plt.show()
     data = x.values.tolist()
     error = 0
     for i in range(len(data)):
@@ -54,6 +55,7 @@ def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_r
     # search_list: search cnt for different days after current day
     # simulator: a simulator
     order_cnt = 0
+    revenue = 0
     history_unconv[s_d_str] = [0]*181
     for i in range(len(s_list)):
         flight_date = str2date(s_d_str) + dt.timedelta(days=i)
@@ -63,21 +65,18 @@ def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_r
         simulator = Simulator(search_number, week_day)
         simulator.generate(category_dtb, class_dtb, airline_dtb, price_range)
         for u in simulator.Users:
-            # user_data.append((search_date_str, flight_date_str, u.Name, u.Type, u.Class, u.Airline, u.Price))
             tickets = find_all_tickets(s_d_str, flight_date_str, price_dict)
+            new_tickets = []
             for i in range(len(tickets)):
-                tickets[i] = (tickets[i][0], tickets[i][1], tickets[i][2]+price_diff)
-            # yes_tickets = find_all_tickets(date2str(str2date(search_date)-dt.timedelta(days=1)), flight_date_str, price_dict)
-            # yesyes_tickets = find_all_tickets(date2str(str2date(search_date) - dt.timedelta(days=2)), flight_date_str,
-            #                                price_dict)
-            # ticket_selected = u.choice_2days(tickets, yes_tickets, yesyes_tickets)
-            ticket_selected = u.choice(tickets)
+                new_tickets.append((tickets[i][0], tickets[i][1], tickets[i][2]+price_diff))
+            ticket_selected = u.choice_feature(new_tickets, 0.57)
             if ticket_selected is not None:
                 history_unconv[s_d_str][i] += 1
                 conv_prob = {0: 1 - conversion_rate[i], 1: conversion_rate[i]}
                 conv = random_generate(conv_prob)
                 order_cnt += conv
-    return order_cnt
+                revenue += conv * ticket_selected[2]
+    return order_cnt, revenue
 
 
 if __name__ == "__main__":
@@ -92,10 +91,11 @@ if __name__ == "__main__":
     conv_rate = dict(conv_df.values.tolist())
     real_df = pd.read_csv("data/search/order_qty_searchdate.csv", index_col='fdate')
     meta_dict = {}
-
     TRAIN_DURATION = 14
-    begin_date = dt.date(2017, 8, 1)
-    end_date = dt.date(2018, 4, 20)
+    # begin_date = dt.date(2017, 7, 1)
+    # end_date = dt.date(2018, 2, 28)
+    begin_date = dt.date(2018, 3, 1)
+    end_date = dt.date(2018, 3, 31)
     pre_begin_date = begin_date - dt.timedelta(days=TRAIN_DURATION)
     d = pre_begin_date
     while d < begin_date:
@@ -110,7 +110,7 @@ if __name__ == "__main__":
         search_date_str = date2str(search_date)
         search_list = search_dict[search_date_str]
         conv_rate_list = train_conversion(search_date - dt.timedelta(days=TRAIN_DURATION), search_date - dt.timedelta(days=1), real_df, meta_dict)
-        orders = predict_order(search_date_str, search_list, category_distribution, class_distribution, airline_distribution, user_price, px_dict, conv_rate_list, meta_dict)
+        orders, r = predict_order(search_date_str, search_list, category_distribution, class_distribution, airline_distribution, user_price, px_dict, conv_rate_list, meta_dict)
         simulate_orders[search_date_str] = orders
         search_date = search_date + dt.timedelta(days=1)
 
@@ -120,9 +120,8 @@ if __name__ == "__main__":
     df = pd.concat([real_df, simulate_df], axis=1)
     df.fillna(0, inplace=True)
     df = df[(df.index >= date2str(begin_date)) & (df.index <= date2str(end_date))]
-    print df
+    # print df
     # user_df = pd.DataFrame(data=user_data, columns=["Search Date", "Flight Date", "Name", "Type", "Class", "Airline", "Price"])
     # user_df.to_csv("user.csv", index=None)
     df.to_csv("result.csv")
-
-    show_result(df)
+    show_result(df, True)

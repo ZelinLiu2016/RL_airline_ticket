@@ -5,7 +5,8 @@ import time
 
 from conversion import train_conversion
 from datetime_utils import date2str
-from predict import get_price_data, predict_order
+from draw3d import draw3d
+from predict import get_price_data, predict_order, find_all_tickets
 from predict import get_search_data
 from user_airline import gen_weekday_airline_dtb
 from user_category import gen_weekday_category_dtb
@@ -19,16 +20,15 @@ def choose_action_by_epsilon_greedy(status, Q_table):
     if random.random() < epsilon:
         max_action = -1
         for i in range(len(actions)):
-            if Q_table[status][i] == max_action:
+            if Q_table[status][i]>max_action:
+                max_action_idx = []
                 max_action_idx.append(i)
-            if Q_table[status][i] > max_action:
-                max_action_idx = [i]
                 max_action = Q_table[status][i]
     random_choice = random.randint(0, len(max_action_idx)-1)
     return max_action_idx[random_choice]
 
 
-def predictTicket(s, pxdiff):
+def predict_ticket(s, pxdiff):
     global meta_dict
     search_date = begin_date + dt.timedelta(days=s)
     search_date_str = date2str(search_date)
@@ -41,7 +41,7 @@ def predictTicket(s, pxdiff):
 
 
 def get_environment_feedback(s, action_name):
-    tic, revunue = predictTicket(s, actions[action_name])
+    tic, revunue = predict_ticket(s, actions[action_name])
     s_ = s + 1
     return s_, revunue
 #
@@ -58,12 +58,10 @@ def get_environment_feedback(s, action_name):
 
 
 def Q_learning(Q_table):
-    theta = [0, 0]
     for episode in range(max_episodes):
         print episode
         s = 0
-        while s < n_status:
-            print s
+        while s <= n_status:
             a = choose_action_by_epsilon_greedy(s, Q_table)
             s_, r = get_environment_feedback(s, a)
             Q_old = Q_table[s][a]
@@ -72,23 +70,31 @@ def Q_learning(Q_table):
                 if Q_table[s_][i] > max_new_q:
                     max_new_q = Q_table[s_][i]
             Q_new = r + gamma * max_new_q
-            A = r - (theta[0] * actions[a] + theta[1] * 1)
-            theta[0] += A*alpha*actions[a]
-            theta[1] += A*alpha*1
             Q_table[s][a] = (1 - alpha) * Q_old + alpha * Q_new
             s = s_
-    print theta
     return Q_table
+
+
+def reformat(a,x,y):
+    max = 0
+    for i in range(x+1):
+        for j in range(y):
+            if a[i][j] > max:
+                max = a[i][j]
+    data_list = []
+    for i in range(x + 1):
+        data = [x/max for x in a[i]]
+        data_list.append(data)
+    return data_list
 
 
 if __name__ == "__main__":
     n_status = 10
     actions = [-10, -5, 0, 5, 10]
-    tickets = 100
     epsilon = 0.8
     alpha = 0.1
     gamma = 0.9
-    max_episodes = 10
+    max_episodes = 100
     Q_table = {}
 
     simulate_orders = {}
@@ -105,7 +111,7 @@ if __name__ == "__main__":
     meta_dict = {}
 
     TRAIN_DURATION = 14
-    begin_date = dt.date(2017, 8, 1)
+    begin_date = dt.date(2018, 3, 1)
     end_date = dt.date(2018, 4, 20)
     pre_begin_date = begin_date - dt.timedelta(days=TRAIN_DURATION)
     d = pre_begin_date
@@ -115,7 +121,9 @@ if __name__ == "__main__":
         predict_order(d_str, search_list, category_distribution, class_distribution, airline_distribution,
                       user_price, px_dict, conv_rate, meta_dict)
         d = d + dt.timedelta(days=1)
-    for i in range(0, n_status + 1, 1):
-        Q_table[i] = [0] * len(actions)
+    for i in range(0, n_status + 2, 1):
+            Q_table[i] = [0] * len(actions)
     a = (Q_learning(Q_table))
-    print a
+    dlist = reformat(a, n_status, len(actions))
+    print dlist
+    draw3d(dlist)
