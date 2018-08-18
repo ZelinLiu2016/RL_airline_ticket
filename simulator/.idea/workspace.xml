@@ -12,15 +12,19 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Simulator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Simulator.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="19">
               <caret line="131" column="15" lean-forward="false" selection-start-line="131" selection-start-column="15" selection-end-line="131" selection-end-column="15" />
               <folding />
+=======
+            <state relative-caret-position="3610">
+              <caret line="202" selection-start-line="202" selection-end-line="202" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
             </state>
           </provider>
         </entry>
@@ -28,6 +32,7 @@
       <file leaf-file-name="q-learning.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q-learning.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="108">
               <caret line="74" column="20" lean-forward="false" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
               <folding>
@@ -55,6 +60,10 @@
             <state relative-caret-position="0">
               <caret line="0" column="42" lean-forward="true" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
               <folding />
+=======
+            <state relative-caret-position="365">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
             </state>
           </provider>
         </entry>
@@ -62,8 +71,13 @@
       <file leaf-file-name="plotting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="179">
               <caret line="15" column="65" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="65" />
+=======
+            <state relative-caret-position="112">
+              <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -104,9 +118,14 @@
       <file leaf-file-name="conversion.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conversion.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="456">
               <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
+=======
+            <state relative-caret-position="361">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
             </state>
           </provider>
         </entry>
@@ -168,35 +187,30 @@
         <option value="$PROJECT_DIR$/draw3d.py" />
         <option value="$PROJECT_DIR$/predict.py" />
         <option value="$PROJECT_DIR$/Simulator.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/CMAC.py" />
         <option value="$PROJECT_DIR$/plotting.py" />
         <option value="$PROJECT_DIR$/fa.py" />
         <option value="$PROJECT_DIR$/try.py" />
+=======
+        <option value="$PROJECT_DIR$/predict.py" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         <option value="$PROJECT_DIR$/q-learning.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -212,6 +226,9 @@
           </PATH>
         </subPane>
       </pane>
+=======
+      <pane id="ProjectPane" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <pane id="Scope" />
     </panes>
   </component>
@@ -238,8 +255,14 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.fa">
     <configuration default="false" name="draw3d" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+  <component name="RunManager" selected="Python.q-learning">
+    <configuration name="Simulator" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="simulator" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -250,13 +273,19 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <module name="simulator" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/draw3d.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Simulator.py" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration default="false" name="predict" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="predict" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="simulator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -267,13 +296,18 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="simulator" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/predict.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="q-learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration name="q-learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="simulator" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -284,13 +318,22 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <module name="simulator" />
+=======
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/q-learning.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="value" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration name="user_price" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="simulator" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -301,13 +344,23 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <module name="simulator" />
       <option name="SCRIPT_NAME" value="D:\CitLab\GIT\RL_airline_ticket\simulator\Q-Learning-in-Python-master\value.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/user_price.py" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="fa" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="simulator" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -318,11 +371,16 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <module name="simulator" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fa.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils.py" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -458,6 +516,7 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.draw3d" />
       <item index="1" class="java.lang.String" itemvalue="Python.predict" />
@@ -472,11 +531,24 @@
         <item index="2" class="java.lang.String" itemvalue="Python.value" />
         <item index="3" class="java.lang.String" itemvalue="Python.predict" />
         <item index="4" class="java.lang.String" itemvalue="Python.draw3d" />
+=======
+    <list>
+      <item itemvalue="Python.Simulator" />
+      <item itemvalue="Python.predict" />
+      <item itemvalue="Python.user_price" />
+      <item itemvalue="Python.utils" />
+      <item itemvalue="Python.q-learning" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.q-learning" />
+        <item itemvalue="Python.predict" />
+        <item itemvalue="Python.Simulator" />
+        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.user_price" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -492,9 +564,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -512,6 +584,25 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08958333" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34750265" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32843137" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.15104167" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4335813" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -521,6 +612,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+<<<<<<< HEAD
           <url>file://$PROJECT_DIR$/fa.py</url>
           <line>45</line>
           <option name="timeStamp" value="62" />
@@ -531,13 +623,50 @@
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="env.action_space" language="Python" />
+=======
+          <url>file://$PROJECT_DIR$/q-learning.py</url>
+          <line>113</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/q-learning.py</url>
+          <line>72</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/q-learning.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/q-learning.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="47" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="meta_dict" language="Python" />
+        <watch expression="Q_table[s]" language="Python" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
+<<<<<<< HEAD
         <expression-string>x.values.tolist()</expression-string>
+=======
+        <expression-string>Q_table[s]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>float(len(conv_list))</expression-string>
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -581,6 +710,7 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
+<<<<<<< HEAD
       <expression>
         <expression-string>real_df.idx[&quot;2018-04-01&quot;]</expression-string>
         <language-id>Python</language-id>
@@ -589,6 +719,50 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+=======
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/datetime_utils.py" />
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4788">
+          <caret line="257" column="6" selection-start-line="257" selection-start-column="6" selection-end-line="257" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3914">
+          <caret line="211" column="15" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3211">
+          <caret line="174" column="27" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3211">
+          <caret line="174" column="27" lean-forward="true" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2603">
+          <caret line="142" column="15" lean-forward="true" selection-start-line="142" selection-start-column="15" selection-end-line="142" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
     <entry file="file://$PROJECT_DIR$/Simulator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3990">
@@ -599,6 +773,7 @@
     <entry file="file://$PROJECT_DIR$/Simulator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2185">
+<<<<<<< HEAD
           <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
         </state>
       </provider>
@@ -614,6 +789,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1216">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+=======
+          <caret line="120" column="24" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/RL-QL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1919">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/prepareFolders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/QLearning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2698">
+          <caret line="145" column="8" selection-start-line="145" selection-start-column="8" selection-end-line="145" selection-end-column="8" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
@@ -640,12 +839,17 @@
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
+<<<<<<< HEAD
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+=======
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/PVG-LAX/2017-02.csv">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="38">
           <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
@@ -659,35 +863,64 @@
           <caret line="41524" column="20" lean-forward="false" selection-start-line="41524" selection-start-column="20" selection-end-line="41524" selection-end-column="20" />
         </state>
       </provider>
+=======
+        <state relative-caret-position="95">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
     </entry>
     <entry file="file://$PROJECT_DIR$/data/PVG-LAX/2017-02_pre.csv">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="19">
           <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+=======
+        <state relative-caret-position="76">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="19" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/PVG-LAX/2017-01_pre.csv">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="19">
           <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="34" />
+=======
+        <state relative-caret-position="342">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/draw3d.py" />
     <entry file="file://$PROJECT_DIR$/conversion.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="456">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
+=======
+        <state relative-caret-position="1216">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/result.csv">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="171">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
+=======
+        <state relative-caret-position="76">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="19" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
@@ -700,6 +933,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Simulator.py">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="131" column="15" lean-forward="false" selection-start-line="131" selection-start-column="15" selection-end-line="131" selection-end-column="15" />
@@ -766,23 +1000,110 @@
             <element signature="e#6758#12282#0" expanded="false" />
             <element signature="e#12338#17975#0" expanded="false" />
           </folding>
+=======
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data/category/Wed_category_1_processed.csv" />
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/Agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/MDP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Anaconda2/Lib/getopt.py" />
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/RL-QL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1919">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/prepareFolders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/src/QLearning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2698">
+          <caret line="145" column="8" selection-start-line="145" selection-start-column="8" selection-end-line="145" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-Learning-in-Python-master/q_learning_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data/PVG-LAX/2017-01_pre.csv" />
+    <entry file="file://$PROJECT_DIR$/data/data/price/2016_prc_time.csv" />
+    <entry file="file://$PROJECT_DIR$/data/data/price/all_price.csv" />
+    <entry file="file://$PROJECT_DIR$/datetime_utils.py" />
+    <entry file="file://$PROJECT_DIR$/data/data/price/2017_prc_time.csv" />
+    <entry file="file://$PROJECT_DIR$/data/data/search/Search.csv" />
+    <entry file="file://$PROJECT_DIR$/result.csv" />
+    <entry file="file://$PROJECT_DIR$/data/data/search/order_qtt.csv" />
+    <entry file="file://C:/Anaconda2/Lib/site-packages/pandas/core/internals.py" />
+    <entry file="file://C:/Anaconda2/Lib/site-packages/pandas/core/generic.py" />
+    <entry file="file://$PROJECT_DIR$/data/data/PVG-LAX/2017-08_pre.csv" />
+    <entry file="file://$USER_HOME$/Desktop/simulator/simulator/conversion/conversion_rate.py" />
+    <entry file="file://$PROJECT_DIR$/utils.py" />
+    <entry file="file://$PROJECT_DIR$/user_class.py" />
+    <entry file="file://$PROJECT_DIR$/user_airline.py" />
+    <entry file="file://$PROJECT_DIR$/User.py" />
+    <entry file="file://$PROJECT_DIR$/user_price.py" />
+    <entry file="file://$PROJECT_DIR$/user_category.py" />
+    <entry file="file://$PROJECT_DIR$/Simulator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3610">
+          <caret line="202" selection-start-line="202" selection-end-line="202" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conversion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/q-learning.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="108">
           <caret line="74" column="20" lean-forward="false" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="365">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fa.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-10">
           <caret line="79" column="53" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="53" />
+=======
+        <state relative-caret-position="112">
+          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
+>>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
           <folding>
             <element signature="e#15#25#0" expanded="true" />
           </folding>
