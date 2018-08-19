@@ -1,14 +1,13 @@
 #coding=utf-8
 
-import gym
 import itertools
-import matplotlib
+
+import gym
 import numpy as np
-import sys
-import sklearn.pipeline
 import sklearn.preprocessing
-from sklearn.linear_model import SGDRegressor
 from sklearn.kernel_approximation import RBFSampler
+from sklearn.linear_model import SGDRegressor
+
 import plotting
 
 env = gym.envs.make("MountainCar-v0")
@@ -92,6 +91,6 @@ def Q_learning_with_value_approximation(env,estimator, epoch_num, discount_facto
             state = next_state
 
 
-estimator=Estimator()
+estimator = Estimator()
 Q_learning_with_value_approximation(env, estimator, 1, epsilon=0.0)
 plotting.plot_cost_to_go_mountain_car(env, estimator)
