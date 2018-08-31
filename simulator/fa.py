@@ -4,6 +4,7 @@ import itertools
 
 import gym
 import numpy as np
+import sklearn.pipeline
 import sklearn.preprocessing
 from sklearn.kernel_approximation import RBFSampler
 from sklearn.linear_model import SGDRegressor

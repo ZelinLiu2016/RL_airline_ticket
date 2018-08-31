@@ -36,11 +36,7 @@ def predictTicket(s, pxdiff):
     conv_rate_list = train_conversion(search_date - dt.timedelta(days=TRAIN_DURATION),
                                       search_date - dt.timedelta(days=1), real_df, meta_dict)
     orders, revenue = predict_order(search_date_str, search_list, category_distribution, class_distribution,
-<<<<<<< HEAD
                            airline_distribution, user_price, px_dict, conv_rate_list, meta_dict, price_diff=pxdiff)
-=======
-                           airline_distribution, user_price, px_dict, conv_rate_list, meta_dict,price_diff=pxdiff)
->>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
     return orders, revenue
 
 
@@ -65,14 +61,9 @@ def Q_learning(Q_table):
     theta = [0, 0]
     for episode in range(max_episodes):
         print episode
-<<<<<<< HEAD
         s = 0
         while s < n_status:
             print s
-=======
-        s = (0, tickets)
-        while s[0] <= n_status and s[1] > 0:
->>>>>>> 0069ea1934d546919bb707f55bd7204eff9881a0
             a = choose_action_by_epsilon_greedy(s, Q_table)
             s_, r = get_environment_feedback(s, a)
             Q_old = Q_table[s][a]
