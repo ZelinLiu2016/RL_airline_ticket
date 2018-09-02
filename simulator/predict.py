@@ -63,8 +63,10 @@ def predict_order(s_d_str, s_list, category_dtb, class_dtb, airline_dtb, price_r
         flight_date_str = date2str(flight_date)
         search_number = s_list[i]
         simulator = Simulator(search_number, week_day)
+
         simulator.generate(category_dtb, class_dtb, airline_dtb, price_range)
         for u in simulator.Users:
+            print u
             tickets = find_all_tickets(s_d_str, flight_date_str, price_dict)
             new_tickets = []
             for i in range(len(tickets)):
